@@ -1,0 +1,10 @@
+jobs:
+  my-job:
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Access JSON file
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github+json" \
+               -X GET https://raw.githubusercontent.com/alexoualexandre/Bdd/Bdd.json
